@@ -1,0 +1,14 @@
+* {
+	display: block;
+}
+input {
+	display: block;
+}
+select {
+	display: block;
+}
+textarea {
+	display: block;
+	width: 50%;
+	height: 33vh;
+}
