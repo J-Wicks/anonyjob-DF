@@ -1,5 +1,6 @@
-* {
-	display: block;
+body {
+	padding-left: 4px;
+
 }
 input {
 	display: block;
@@ -12,3 +13,9 @@ textarea {
 	width: 50%;
 	height: 33vh;
 }
+
+form span {
+	padding: 5px;
+    font-size: 75%
+}
+

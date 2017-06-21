@@ -4,7 +4,16 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Demographics and Writing Sample</title>
+        <title></title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/style.css">
 
         <script src="/bundle.js" defer></script>
@@ -13,44 +22,42 @@
     <body>
 
         <h3> Please input as much information as you are comforable with providing. Only the writing sample is required. </h3>
+        <span id='flash-message' class='alert-success'> </span>
         <form>
-            Age
+            <p> Age </p>
             <input id='age' type='text' />
 
-            Gender
-            <input id='gender' type='text' />
-<!--             <select id='gender'>
-                <option value='dummy-option'> Dummy Option </option>
-            </select> -->
+            <p> Gender </p>
 
-            Race
-            <input id='race' type='text' />
-<!--             <select id='race'>
-                <option value='dummy-option'> Dummy Option </option>
-            </select> -->
-
-            Orientation
-            <input id='orientation' type='text' /> 
-<!--             <select id='orientation'>
-                <option value='dummy-option'> Dummy Option </option>
-            </select> -->
-
-            Yrs Work Experience (Non-Management Non-Exec)
-            <select id='yrs-work' class='yeardial'>
+            <select id='gender'>
+                <option value='unspecified'> None Selected </option>
             </select>
 
-            Yrs Management Experience (Non-Exec)
-            <select id='yrs-mgmt') class='yeardial'>
+            <span> Don't see yours? Input it here: </span>
+             <input id='gender-free' type='text' />
+
+            <p> Race </p>
+
+            <select id='race'>
+                <option value='unspecified'> None Selected </option>
             </select>
 
-            Yrs Executive Experience
-            <select id='yrs-mgmt') class='yeardial'>
+            <span>Don't see yours? Input it here:</span>
+            <input id='race-free' type='text' />
+
+            <p> Orientation </p>
+
+            <select id='orientation'>
+                <option value='unspecified'> None Selected</option>
             </select>
 
-            Bio/Cover Letter
+            <span> Don't see yours? Input it here: </span>
+            <input id='orientation-free' type='text' />
+
+            <p> Writing Sample </p>
             <textarea></textarea>
 
-            <input type="submit" />
+            <input type="submit" class='btn btn-submit'/>
         </form>
     </body>
 </html>

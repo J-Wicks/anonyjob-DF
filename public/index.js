@@ -6,20 +6,42 @@ for(let i = 0; i <= 50; i++){
 $('.yeardial').append($(`<option value=${i}> ${i} </option>`))	
 }
 
+$.get('/api/gender', result =>{
+	result.forEach( gender => {
+		$('#gender').append($(`<option value=${gender.name}> ${gender.name} </option>`))
+	})
+})
+
+$.get('/api/race', result =>{
+	result.forEach( race => {
+		$('#race').append($(`<option value=${race.name}> ${race.name} </option>`))
+	})
+})
+
+$.get('/api/orientation', result =>{
+	result.forEach( orientation => {
+		$('#orientation').append($(`<option value=${orientation.name}> ${orientation.name} </option>`))
+	})
+})
 
 $('form').submit( (event) => { 
 	event.preventDefault();
-	let [age, gender, race, orientation, yearsWork, yearsMgmt, yearsExec, writingSample, button] = $(event.target).children()
+	let [p1, age, p2, gender, span1, genderFree, p3, race, span2, raceFree, p4, orientation, span3, orientationFree, p5, writingSample, button] = $(event.target).children()
+	console.log($(event.target).children())
 	$.post('/api', {
-		age: $(age).val(),
-		gender: $(gender).val(),
-		race: $(race).val(),
-		orientation: $(orientation).val(),
-		yearsWork: $(yearsWork).val(),
-		yearsMgmt: $(yearsMgmt).val(),
-		yearsExec: $(yearsExec).val(),
+		age: $(age).val() || 0,
+		gender: $(genderFree).val() || $(gender).val(),
+		race: $(raceFree).val() || $(race).val(),
+		orientation: $(orientationFree).val() || $(orientation).val(),
 		writingSample: $(writingSample).val()
 	}, result => {
 		console.log(result)
+
+		$('#flash-message').text('Successfully Added - Thank You!')
+		
+		setTimeout( () => {
+			location.reload()
+		}, 3000)
 	})
 })
+

@@ -8,6 +8,27 @@ router.get('/', function(req, res, next){
 	res.status(200).send('good job hitting the route, but i\'m not going to send you any of our user data')
 })
 
+router.get('/gender', function(req, res, next){
+	Gender.findAll()
+	.then( foundGenders => {
+		res.send(foundGenders)
+	})
+})
+
+router.get('/race', function(req, res, next){
+	Race.findAll()
+	.then( foundRaces => {
+		res.send(foundRaces)
+	})
+})
+
+router.get('/orientation', function(req, res, next){
+	Orientation.findAll()
+	.then( foundOrientations => {
+		res.send(foundOrientations)
+	})
+})
+
 router.post('/', (req, res, next) => {
 	User.create({
 		age: req.body.age,
