@@ -26,13 +26,13 @@ $.get('/api/orientation', result =>{
 
 $('form').submit( (event) => { 
 	event.preventDefault();
-	let [p1, age, p2, gender, span1, genderFree, p3, race, span2, raceFree, p4, orientation, span3, orientationFree, p5, writingSample, button] = $(event.target).children()
+	let [p1, age, p2, gender, p3, raceFree, p4, orientation, p5, writingSample, button] = $(event.target).children()
 	console.log($(event.target).children())
 	$.post('/api', {
 		age: $(age).val() || 0,
-		gender: $(genderFree).val() || $(gender).val(),
-		race: $(raceFree).val() || $(race).val(),
-		orientation: $(orientationFree).val() || $(orientation).val(),
+		gender: $(gender).val(),
+		race: $(raceFree).val(),
+		orientation: $(orientation).val(),
 		writingSample: $(writingSample).val()
 	}, result => {
 		console.log(result)

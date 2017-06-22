@@ -4,6 +4,8 @@ body {
 }
 input {
 	display: block;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 select {
 	display: block;
@@ -17,5 +19,9 @@ textarea {
 form span {
 	padding: 5px;
     font-size: 75%
+}
+
+form p {
+	font-weight: bold;
 }
 
