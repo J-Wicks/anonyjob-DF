@@ -23,15 +23,16 @@ router.get('/allData', function(req, res, next) {
 		}
 	},
 	{
-		model: Gender,
+		model: Orientation,
 		through: {
 			attributes: ['name']
 		}
 	}]
 })
 .then(foundUsers => {
-		res.json(foundUsers)
+		res.status(200).json(foundUsers)
 	})
+	.catch(next)
 })
 
 router.get('/gender', function(req, res, next){
