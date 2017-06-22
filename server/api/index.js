@@ -9,26 +9,28 @@ router.get('/', function(req, res, next){
 })
 
 router.get('/allData', function(req, res, next) {
-	User.findAll({include:
-	[{
-		model: Gender,
-		through: {
-			attributes: ['name']
-		}
-	},
-	{
-		model: Race,
-		through: {
-			attributes: ['name']
-		}
-	},
-	{
-		model: Orientation,
-		through: {
-			attributes: ['name']
-		}
-	}]
-})
+	User.findAll(
+// 		{include:
+// 	[{
+// 		model: Gender,
+// 		through: {
+// 			attributes: ['name']
+// 		}
+// 	},
+// 	{
+// 		model: Race,
+// 		through: {
+// 			attributes: ['name']
+// 		}
+// 	},
+// 	{
+// 		model: Orientation,
+// 		through: {
+// 			attributes: ['name']
+// 		}
+// 	}]
+// }
+)
 .then(foundUsers => {
 		res.status(200).json(foundUsers)
 	})
