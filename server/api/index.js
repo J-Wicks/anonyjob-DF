@@ -10,29 +10,35 @@ router.get('/', function(req, res, next){
 
 router.get('/allData', function(req, res, next) {
 	User.findAll(
-// 		{include:
-// 	[{
-// 		model: Gender,
-// 		through: {
-// 			attributes: ['name']
-// 		}
-// 	},
-// 	{
-// 		model: Race,
-// 		through: {
-// 			attributes: ['name']
-// 		}
-// 	},
-// 	{
-// 		model: Orientation,
-// 		through: {
-// 			attributes: ['name']
-// 		}
-// 	}]
-// }
-)
+		{include:
+	[{model: Gender}, {model: Race}, {model: Orientation}]
+	})
 .then(foundUsers => {
-		res.status(200).json(foundUsers)
+	const usersPack = []
+	foundUsers.forEach( user => {
+
+		let newUser ={
+			gender: user.gender.name,
+			orientation: user.orientation.name,
+			race: user.race.name,
+			writing: user.writing
+		}
+		// let gender = user.gender.name;
+		// let orientation = user.orientation.name;
+		// let race = user.race.name;
+		// console.log(gender, orientation, race)
+
+		// delete user.gender
+		// delete user.orientation
+		// delete user.race
+
+		// user.genderId = gender;
+		// user.orientationId = orientation;
+		// user.raceId = race;
+		usersPack.push(newUser)
+	})
+
+	res.status(200).json(usersPack)
 	})
 	.catch( err => {
 		res.send(err)
