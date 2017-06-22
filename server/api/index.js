@@ -32,7 +32,9 @@ router.get('/allData', function(req, res, next) {
 .then(foundUsers => {
 		res.status(200).json(foundUsers)
 	})
-	.catch(next)
+	.catch( err => {
+		res.send(err)
+	})
 })
 
 router.get('/gender', function(req, res, next){
