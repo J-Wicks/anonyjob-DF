@@ -8,6 +8,32 @@ router.get('/', function(req, res, next){
 	res.status(200).send('good job hitting the route, but i\'m not going to send you any of our user data')
 })
 
+router.get('/allData', function(req, res, next) {
+	User.findAll({include:
+	[{
+		model: Gender,
+		through: {
+			attributes: ['name']
+		}
+	},
+	{
+		model: Race,
+		through: {
+			attributes: ['name']
+		}
+	},
+	{
+		model: Gender,
+		through: {
+			attributes: ['name']
+		}
+	}]
+})
+.then(foundUsers => {
+		res.json(foundUsers)
+	})
+})
+
 router.get('/gender', function(req, res, next){
 	Gender.findAll()
 	.then( foundGenders => {
