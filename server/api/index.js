@@ -23,18 +23,6 @@ router.get('/allData', function(req, res, next) {
 			race: user.race.name,
 			writing: user.writing
 		}
-		// let gender = user.gender.name;
-		// let orientation = user.orientation.name;
-		// let race = user.race.name;
-		// console.log(gender, orientation, race)
-
-		// delete user.gender
-		// delete user.orientation
-		// delete user.race
-
-		// user.genderId = gender;
-		// user.orientationId = orientation;
-		// user.raceId = race;
 		usersPack.push(newUser)
 	})
 

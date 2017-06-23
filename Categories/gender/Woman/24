@@ -1,0 +1,2 @@
+The numbers on top of the board represent tickets (JIRA term for cards) within each column, and clicking a ticket reveals more information about the project. I encourage designers to document as much of their research and thought process within tickets.
+Why? We often refer to old tickets for new projects or hand-off projects to other designers. In either case, good documentation is useful to recall or understand why design decisions were made.

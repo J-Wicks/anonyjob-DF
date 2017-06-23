@@ -1,7 +1,10 @@
 const PythonShell = require('python-shell')
+const bluebird = require('bluebird')
 const axios = require('axios')
 const fs = require('fs')
-
+// const mkdir = bluebird.promisify(fs.mkdir)
+// const writeFile = bluebird.promisify(fs.writeFile)
+const fileByCat = require('./utils').fileByCat
 
 const pyTester = new PythonShell('pyTester.py', {mode: 'json'})
 
@@ -13,19 +16,9 @@ pyTester.stdout.on('data', data => {
 axios.get('https://pacific-falls-40871.herokuapp.com/api/allData')
 .then(res => res.data)
 .then(data => {
-  // pyTester.send(data).end(err => {
-  //   if (err) console.error(err)
-  //   console.log(output)
   data.forEach((user, idx) => {
-    if (!fs.existsSync(__dirname + `/Categories/Gender/${user.gender}`)) {
-      fs.mkdir(__dirname + `/Categories/Gender/${user.gender}`, (err) => {
-        if (err) throw err;
-        console.log('Folder created.')
-      })
-    }
-    else {
-      console.log('Folder already exists.')
-    }
+    fileByCat(user, idx, 'race')
+    fileByCat(user, idx, 'orientation')
+    fileByCat(user, idx, 'gender')
   })
 })
-.catch(console.error)
