@@ -4,9 +4,5 @@ const writingSamplesDB = new Sequelize( process.env.DATABASE_URL || 'postgres://
 	logging: false
 })
 
-const anonyjobsDB = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/anonyjobs-app', {
-  logging: false
-});
 
-
-module.exports = {writingSamplesDB, anonyjobsDB}
+module.exports = {writingSamplesDB}

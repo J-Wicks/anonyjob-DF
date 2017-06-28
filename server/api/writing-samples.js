@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const User = require('../appDBModels').User
-const Gender = require('../appDBModels').Gender
-const Orientation = require('../appDBModels').Orientation
-const Race = require('../appDBModels').Race
+const User = require('../writingDBModels').User
+const Gender = require('../writingDBModels').Gender
+const Orientation = require('../writingDBModels').Orientation
+const Race = require('../writingDBModels').Race
 
 router.get('/', function(req, res, next){
 	res.status(200).send('good job hitting the route, but i\'m not going to send you any of our user data')
