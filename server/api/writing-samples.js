@@ -13,24 +13,21 @@ router.get('/allData', function(req, res, next) {
 		{include:
 	[{model: Gender}, {model: Race}, {model: Orientation}]
 	})
-.then(foundUsers => {
-	const usersPack = []
-	foundUsers.forEach( user => {
-
-		let newUser ={
-			gender: user.gender.name,
-			orientation: user.orientation.name,
-			race: user.race.name,
-			writing: user.writing
-		}
-		usersPack.push(newUser)
-	})
-
-	res.status(200).json(usersPack)
-	})
-	.catch( err => {
-		res.send(err)
-	})
+	.then(foundUsers => {
+		const usersPack = []
+		foundUsers.forEach( user => {
+			console.log(user.race)
+			let newUser = {
+				gender: user.gender ? user.gender.name:'unspecified',
+				orientation: user.orientation ? user.orientation.name: 'unspecified',
+				race: user.race? user.race.name : 'unspecified',
+				writing: user.writing
+			}
+			usersPack.push(newUser)
+		})
+		res.status(200).send(usersPack)
+		})
+	.catch('oops')
 })
 
 router.get('/gender', function(req, res, next){
@@ -76,4 +73,5 @@ router.post('/', (req, res, next) => {
 	})
 	res.status(200).send('Database Row Added')
 })
+
 module.exports = router

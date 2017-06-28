@@ -21,13 +21,15 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}))
 
+app.use('/api', require('./api/writing-samples'))
+
 app.use('/', express.static(path.join(__dirname + '/../public')))
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/data-collection.html'))
 })
 
-app.use('/api', require('./api/writing-samples'))
+
 
 
 
