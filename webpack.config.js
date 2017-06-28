@@ -14,13 +14,6 @@ module.exports = {
         options: {
           presets: ['react'] // if you aren't using 'babel-preset-es2015', then omit the 'es2015'
         }
-      },
-      {
-        test: /\.scss$/,
-        use: [
-        'style-loader',
-        'css-loader',
-        'sass-loader']
       }
     ]
   }
